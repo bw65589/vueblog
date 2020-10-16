@@ -20,11 +20,18 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * @author bw
+ */
 @Configuration
 public class ShiroConfig {
 
+    private final JwtFilter jwtFilter;
+
     @Autowired
-    JwtFilter jwtFilter;
+    public ShiroConfig(JwtFilter jwtFilter){
+        this.jwtFilter = jwtFilter;
+    }
 
     @Bean
     public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {

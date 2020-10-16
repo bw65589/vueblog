@@ -4,7 +4,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.log4j.Logger;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +17,6 @@ import java.util.Date;
 @Component
 @ConfigurationProperties(prefix = "bw.jwt")
 public class JwtUtils {
-
-    protected final Logger logger = Logger.getLogger(getClass());
 
     private String secret;
     private long expire;
@@ -49,7 +46,7 @@ public class JwtUtils {
                     .parseClaimsJws(token)
                     .getBody();
         }catch (Exception e){
-            logger.debug("validate is token error ", e);
+            log.debug("validate is token error ", e);
             return null;
         }
     }
