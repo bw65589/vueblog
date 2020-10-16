@@ -1,18 +1,14 @@
-#FROM kimicheng/jdk1.8.0_91
-#MAINTAINER 754369677@qq.com
-##设置docker容器的工作区
-#WORKDIR /app
-#ENV LANG en_US.UTF-8
-#ENV LANGUAGE en_US:en
-#ENV LC_ALL en_US.UTF-8
-# #拷贝当前目录下的jar到docker容器中
-#COPY app-0.0.1-SNAPSHOT.jar /app/app.jar
-##对外开放端口
-#EXPOSE 8787
-#CMD java -jar /app/app.jar  #最后运行的命令
-
-#FROM openjdk:8-jdk-alpine
-FROM hub.c.163.com/dwyane/openjdk:8
+# 基础镜像使用java openjdk
+FROM openjdk:8-jre
+ARG project_name
+#RUN echo $project_name
+# 作者
+MAINTAINER test test@qq.com
+# VOLUME 指定了临时文件目录为/tmp。
+# 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp
 VOLUME /tmp
-ADD docker-springboot-1.0-SNAPSHOT.jar app.jar
+# 将jar包添加到容器中并更名为app.jar
+ADD $project_name-0.0.1-SNAPSHOT.jar app.jar
+# 运行jar包
+RUN bash -c 'touch /app.jar'
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
