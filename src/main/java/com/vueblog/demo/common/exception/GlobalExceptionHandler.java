@@ -3,13 +3,15 @@ package com.vueblog.demo.common.exception;
 
 import com.vueblog.demo.common.lang.Result;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.log4j.Logger;
 import org.apache.shiro.ShiroException;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -48,6 +50,17 @@ public class GlobalExceptionHandler {
     public Result handler(RuntimeException e) {
         log.error("运行时异常：----------------{}", e);
         return Result.fail(e.getMessage());
+    }
+
+    @ResponseBody
+    @ExceptionHandler(UnauthorizedException.class)
+    public String handleShiroException(Exception ex) {
+        return "无权限";
+    }
+    @ResponseBody
+    @ExceptionHandler(AuthorizationException.class)
+    public String AuthorizationException(Exception ex) {
+        return "权限认证失败";
     }
 
 }
