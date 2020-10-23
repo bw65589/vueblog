@@ -2,16 +2,16 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/vueblog?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://47.95.210.118:3306/vueblog?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
-    password: 123456
+    password: 960928
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
 
 shiro-redis:
   enabled: true
   redis-manager:
-    host: 127.0.0.1:6379
+    host: 47.95.210.118:6379
 markerhub:
   jwt:
     # 加密秘钥
