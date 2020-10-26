@@ -11,6 +11,7 @@ import java.util.Date;
 
 /**
  * jwt工具类
+ * @author liumeng
  */
 @Slf4j
 @Data

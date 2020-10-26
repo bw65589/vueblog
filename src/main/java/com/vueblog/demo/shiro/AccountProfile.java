@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * @author liumeng
+ */
 @Data
 public class AccountProfile implements Serializable {
 

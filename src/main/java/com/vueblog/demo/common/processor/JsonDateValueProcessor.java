@@ -7,6 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * @author liumeng
+ */
 public class JsonDateValueProcessor implements JsonValueProcessor {
 
     private static String format = "yyyy-MM-dd HH:mm:ss";

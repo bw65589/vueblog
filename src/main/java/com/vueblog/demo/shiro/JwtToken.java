@@ -2,6 +2,9 @@ package com.vueblog.demo.shiro;
 
 import org.apache.shiro.authc.AuthenticationToken;
 
+/**
+ * @author liumeng
+ */
 public class JwtToken implements AuthenticationToken {
 
     private String token;
