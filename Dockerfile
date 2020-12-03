@@ -11,4 +11,4 @@ ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","/var/jenkins_home/wor
 CMD ["-start"]
 #ENTRYPOINT ["sh","-c","java -jar /var/jenkins_home/workspace/vueblog/vueblog.jar"]
 #暴露端口
-EXPOSE 8080
+EXPOSE 8089
