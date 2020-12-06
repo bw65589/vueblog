@@ -36,7 +36,7 @@ public class BlogController {
 
         Page page = new Page(currentPage, 5);
         IPage pageData = blogService.page(page, new QueryWrapper<Blog>().orderByDesc("created"));
-
+        String x = new String("wdw");
         return Result.succ(pageData);
     }
 
